@@ -1,0 +1,61 @@
+<style>
+    .register {
+      margin-top: 60px;
+      margin: auto;
+      width: 15%;
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      padding: 10px;
+    }
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+</style>
+    
+<div class="register">
+  <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+      <div class="row">
+            <mat-form-field>
+              <input matInput placeholder="Enter your name" [(ngModel)]="student.name"  name="name">
+            </mat-form-field>
+       </div>
+
+      <div class="row">
+      <mat-form-field>
+        <input matInput placeholder="Enter your email" [(ngModel)]="student.email" [formControl]="email" required>
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+      </div>
+
+      <div class="row">
+          <mat-form-field>
+            <input matInput placeholder="Enter your phone number" [(ngModel)]="student.telefon" name="telefon">
+          </mat-form-field>
+       </div>
+
+       <div class="row">
+          <mat-form-field>
+            <input matInput placeholder="Enter your address" [(ngModel)]="student.adress" name="adress">
+          </mat-form-field>
+       </div> 
+      
+        <div class="row">
+           <mat-form-field>
+              <input matInput placeholder="Enter your group" [(ngModel)]="student.grupa" name="grupa">
+           </mat-form-field>
+        </div> 
+
+      <div class="row">
+        <mat-form-field>
+          <input matInput id="password" name="password" placeholder="Enter your password" [(ngModel)]="student.password" [type]="hide ? 'password' : 'text'">
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </mat-form-field>
+      </div>
+
+      <div class="row">
+      <button mat-flat-button color="primary" type="submit" >Register</button>
+      </div>
+  </form>
+</div>

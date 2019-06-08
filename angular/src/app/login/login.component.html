@@ -1,0 +1,35 @@
+<style>
+.login {
+  margin-top: 60px;
+  margin: auto;
+  width: 15%;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+
+<div class="login">
+<form (ngSubmit)="onSubmit()" #userForm="ngForm">
+  <div class="row">
+  <mat-form-field>
+    <input matInput placeholder="Enter your email" [(ngModel)]="user.email" [formControl]="email" required>
+    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+  </mat-form-field>
+  </div>
+
+  <div class="row">
+  <mat-form-field>
+    <input matInput id="password" name="password" placeholder="Enter your password" [(ngModel)]="user.password" [type]="hide ? 'password' : 'text'">
+    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+  </mat-form-field>
+
+  <button mat-flat-button color="primary" type="submit" >Login</button>
+  </div>
+</form>
+</div>

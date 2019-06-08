@@ -1,0 +1,55 @@
+<style>
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+</style>
+  
+<div>
+    <div class="row">
+          <mat-form-field>
+            <input matInput placeholder="Enter your name" [(ngModel)]="name" name="name">
+          </mat-form-field>
+     </div>
+
+    <div class="row">
+    <mat-form-field>
+      <input matInput placeholder="Enter new email" [formControl]="email" required>
+      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+    </div>
+
+    <div class="row">
+        <mat-form-field>
+          <input matInput placeholder="Enter new phone number" [(ngModel)]="telefon" name="telefon">
+        </mat-form-field>
+     </div>
+
+     <div class="row">
+        <mat-form-field>
+          <input matInput placeholder="Enter new address" [(ngModel)]="adress" name="adress">
+        </mat-form-field>
+     </div> 
+    
+     <div class="row">
+        <td><select [(ngModel)]="materie" name="materie">
+          <option value="Analiza">Analiza</option>
+          <option value="Procesare Imagini">Procesare de Imagini</option>
+          <option value="Calcul Numeric">Calcul Numberic</option>
+          <option value="POO">Programare Orientata pe Obiecte</option>
+          <option value="Inteligenta Artificiala">Inteligenta Artificiala</option>
+        </select></td>
+     </div>
+
+    <div class="row">
+      <mat-form-field>
+        <input matInput id="password" name="password" placeholder="Type new password" [(ngModel)]="password" [type]="hide ? 'password' : 'text'">
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </mat-form-field>
+    </div>
+
+    <div mat-dialog-actions class="row">
+     <button mat-button  (click)="onSubmit()" [mat-dialog-close]="data.name" cdkFocusInitial> Save </button>
+    </div>
+</div>

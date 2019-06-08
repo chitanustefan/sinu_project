@@ -1,0 +1,13 @@
+<div>
+<mat-form-field>
+  <input matInput placeholder="Grupa" [(ngModel)]="grupa">
+</mat-form-field>
+<mat-form-field>
+    <input matInput placeholder="Materie" [(ngModel)]="materie">
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button (click)="onClick(grupa, materie)" [mat-dialog-close]="materie" cdkFocusInitial>Ok</button>
+</div>

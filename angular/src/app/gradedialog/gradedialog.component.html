@@ -1,0 +1,11 @@
+<div>
+    <h1 mat-dialog-title>Hi {{data.idStudent}}</h1>
+<mat-form-field>
+  <input matInput placeholder="Nota" [(ngModel)]="data.grade">
+</mat-form-field>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button (click)="onClick(data.idStudent, data.grade, data.idProfesor)" [mat-dialog-close]="data.grade" cdkFocusInitial>Ok</button>
+</div>
